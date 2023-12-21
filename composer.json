@@ -1,0 +1,30 @@
+{
+    "name": "pechondra/menu",
+    "description": "Configurable menu object",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ondřej Pech",
+            "email": "dev@ondrej-pech.cz"
+        }
+    ],
+    "require": {
+        "php": "^8.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "PechOndra\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}
