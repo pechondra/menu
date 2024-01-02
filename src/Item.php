@@ -2,6 +2,8 @@
 
 namespace PechOndra\Layout\Menu;
 
+use PechOndra\Destination;
+
 class Item implements ItemInterface
 {
 
@@ -11,7 +13,7 @@ class Item implements ItemInterface
 
 	private ItemInterface|MenuInterface|null $parent = null;
 
-	private string|null $destination;
+	private Destination|null $destination;
 
 	private string|null $resource;
 
@@ -25,8 +27,8 @@ class Item implements ItemInterface
 	public function __construct(
 		string $canonicalName,
 		string $title,
-		string|null $destination = NULL,
-		string|null $resource = NULL,
+		Destination|null $destination = null,
+		string|null $resource = null,
 		int $sortPriority = 10,
 		ItemInterface ...$items
 	)
@@ -50,7 +52,7 @@ class Item implements ItemInterface
 		return $this->title;
 	}
 
-	public function getDestination(): string|null
+	public function getDestination(): Destination|null
 	{
 		return $this->destination;
 	}

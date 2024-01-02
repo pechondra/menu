@@ -10,7 +10,7 @@
 - defines the property of the menu item:
     - `canonicalName`: system name of the item, must be unique in the given structure
     - `title`: title of item *(mostly will be key for translation)*
-    - `destination`: the absolute path of the link eg *:Layout:Admin:Layout:* can be `null` (null = not itself a link but can have sub-items).
+    - `destination`: object with the absolute path of the link eg *:Layout:Admin:Layout:* and query params, can be `null` (null = not itself a link but can have sub-items).
     - `resource`: the resource for the ACL can be `null` (when it is `null`, the ACL is not resolved = it has access)
     - `parent`: is added automatically when included in the structure contains `MenuInterface` or `ItemInterface` which is the superior item of this structure
     - `items`: contains child items in `\PechOndra\Layout\Menu\ItemCollection`
@@ -51,7 +51,7 @@ class SomeMenu
                      new \PechOndra\Layout\Menu\Item(
                          canonicalName: 'DemoLayoutSubSub2',
                          title: 'TAB Demo layout Sub Sub 2',
-                         destination: ':Layout:Admin:Layout:',
+                         destination: Destination::create(':Layout:Admin:Layout:', , ['limit' => 10, 'category' => 'all']),
                          resource: null,
                          sortPriority: 10,
                      ),

@@ -2,6 +2,8 @@
 
 namespace PechOndra\Layout\Menu;
 
+use PechOndra\Destination;
+
 class NetteMenuCompiler
 {
 
@@ -79,11 +81,14 @@ class NetteMenuCompiler
 		// Set current/active for menu
 		$currentPresenterDestination = self::getCurrentPresenterDestination(
 			$this->presenter->getName(),
-			$this->presenter->getAction()
+			$this->presenter->getAction(),
+			$this->presenter->getParameters(),
 		);
 
-		if ($item->getDestination() === $currentPresenterDestination) {
-			$this->setCurrentRecursive($item);
+		if ($item->getDestination()->getDestination() === $currentPresenterDestination->getDestination()) {
+			if ($item->getDestination()->getParams() === $currentPresenterDestination->getParams()) {
+				$this->setCurrentRecursive($item);
+			}
 		}
 
 	}
@@ -102,13 +107,13 @@ class NetteMenuCompiler
 	}
 
 
-	private static function getCurrentPresenterDestination(string $presenter, string $action): string
+	private static function getCurrentPresenterDestination(string $presenter, string $action, array $params): Destination
 	{
 		if ($action === self::DefaultAction) {
 			$action = '';
 		}
 
-		return \sprintf(':%s:%s', $presenter, $action);
+		return Destination::create(\sprintf(':%s:%s', $presenter, $action), $params);
 	}
 
 }

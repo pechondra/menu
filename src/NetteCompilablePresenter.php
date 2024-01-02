@@ -9,4 +9,6 @@ interface NetteCompilablePresenter
 	public function getAction(): string;
 
 	public function getName(): string;
+
+	public function getParameters(): array;
 }
