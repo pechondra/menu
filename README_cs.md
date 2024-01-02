@@ -9,7 +9,7 @@
 - definuje property položky menu:
     - `canonicalName`: systémový název položky, musí být unikátní v dané struktuře
     - `title`: název položky *(většinou bude klíč pro překlad)*
-    - `destination`: absolutní cesta odkazu např. *:Layout:Admin:Layout:* může být `null` (null = není sám o sobě odkazem ale může mít sub-itemy).
+    - `destination`: objekt s absolutní cestou odkazu např. *:Layout:Admin:Layout:* a query parametry, může být `null` (null = není sám o sobě odkazem ale může mít sub-itemy).
     - `resource`: zdroj pro ACL může být `null` (když je `null` tak se ACL neřeší = má přístup)
     - `parent`: doplňuje se automaticky při zařazení do struktury obsahuje `MenuInterface` nebo `ItemInterface` což je nadřazená položka této struktury
     - `items`: obsahuje podřazené položky v `\PechOndra\Layout\Menu\ItemCollection`
@@ -50,7 +50,7 @@ class SomeMenu
                     new \PechOndra\Layout\Menu\Item(
                         canonicalName: 'DemoLayoutSubSub2',
                         title: 'TAB Demo layout Sub Sub 2',
-                        destination: ':Layout:Admin:Layout:',
+                        destination: Destination::create(':Layout:Admin:Layout:', ['limit' => 10, 'category' => 'all'])']),
                         resource: null,
                         sortPriority: 10,
                     ),

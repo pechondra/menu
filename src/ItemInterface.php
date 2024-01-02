@@ -2,6 +2,8 @@
 
 namespace PechOndra\Layout\Menu;
 
+use PechOndra\Destination;
+
 interface ItemInterface
 {
 
@@ -9,7 +11,7 @@ interface ItemInterface
 
 	public function getTitle(): string;
 
-	public function getDestination(): string|null;
+	public function getDestination(): Destination|null;
 
 	public function getResource(): string|null;
 
