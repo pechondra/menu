@@ -113,7 +113,7 @@ class NetteMenuCompiler
 			$action = '';
 		}
 
-		return new Destination(\sprintf(':%s:%s', $presenter, $action), $params);
+		return Destination::create(\sprintf(':%s:%s', $presenter, $action), $params);
 	}
 
 }
