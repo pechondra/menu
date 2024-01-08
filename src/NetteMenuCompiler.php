@@ -86,7 +86,7 @@ class NetteMenuCompiler
 		);
 
 		if ($item->getDestination()->getDestination() === $currentPresenterDestination->getDestination()) {
-			if ($item->getDestination()->getParams() === $currentPresenterDestination->getParams()) {
+			if ($item->getDestination()->getParams() === $currentPresenterDestination->getParams() || $item->getDestination()->getParams() === []) {
 				$this->setCurrentRecursive($item);
 			}
 		}
