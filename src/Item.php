@@ -22,6 +22,8 @@ class Item implements ItemInterface
 
 	private int $sortPriority;
 
+	private string|null $icon;
+
 	private ItemCollection $items;
 
 	public function __construct(
@@ -30,6 +32,7 @@ class Item implements ItemInterface
 		Destination|null $destination = null,
 		string|null $resource = null,
 		int $sortPriority = 10,
+		string $icon = null,
 		ItemInterface ...$items
 	)
 	{
@@ -55,6 +58,11 @@ class Item implements ItemInterface
 	public function getDestination(): Destination|null
 	{
 		return $this->destination;
+	}
+
+	public function getIcon(): string|null
+	{
+		return $this->icon;
 	}
 
 	public function getResource(): string|null

@@ -13,6 +13,8 @@ interface ItemInterface
 
 	public function getDestination(): Destination|null;
 
+	public function getIcon(): string|null;
+
 	public function getResource(): string|null;
 
 	public function isCurrent(): bool;
