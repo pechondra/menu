@@ -1,6 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace Pleskin;
+namespace Pleskin\Nette;
+
+use Pleskin\Destination;
+use Pleskin\ItemCollection;
+use Pleskin\ItemInterface;
+use Pleskin\MenuInterface;
 
 class NetteMenuCompiler
 {
@@ -83,9 +88,11 @@ class NetteMenuCompiler
 			$this->presenter->getParameters(),
 		);
 
-		if ($item->getDestination()->getDestination() === $currentPresenterDestination->getDestination()) {
-			if ($item->getDestination()->getParams() === $currentPresenterDestination->getParams() || $item->getDestination()->getParams() === []) {
-				$this->setCurrentRecursive($item);
+		if ($item->getDestination() !== null) {
+			if ($item->getDestination()->getDestination() === $currentPresenterDestination->getDestination()) {
+				if ($item->getDestination()->getParams() === $currentPresenterDestination->getParams()) {
+					$this->setCurrentRecursive($item);
+				}
 			}
 		}
 
