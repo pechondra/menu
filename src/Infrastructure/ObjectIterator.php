@@ -1,11 +1,10 @@
 <?php declare(strict_types = 1);
 
-namespace PechOndra\Infrastructure\Collection;
+namespace Pleskin\Infrastructure;
 
 use ArrayAccess;
 use Countable;
 use IteratorAggregate;
-use ReturnTypeWillChange;
 
 /** @implements IteratorAggregate<int|string, mixed> */
 abstract class ObjectIterator implements ArrayAccess, IteratorAggregate, Countable
@@ -25,12 +24,10 @@ abstract class ObjectIterator implements ArrayAccess, IteratorAggregate, Countab
 		$this->data = $data;
 	}
 
-	#[ReturnTypeWillChange]
 	public function count(): int
 	{
 		return \count($this->data);
 	}
-
 
 	/**
 	 * @param mixed $offset
@@ -40,39 +37,32 @@ abstract class ObjectIterator implements ArrayAccess, IteratorAggregate, Countab
 		return isset($this->data[$offset]);
 	}
 
-
 	/**
 	 * @param mixed $offset
 	 * @return mixed
 	 */
-	#[ReturnTypeWillChange]
 	public function offsetGet($offset)
 	{
 		return $this->data[$offset];
 	}
-
 
 	/**
 	 * @param mixed $offset
 	 * @param mixed $value
 	 * @return mixed
 	 */
-	#[ReturnTypeWillChange]
 	public function offsetSet($offset, $value)
 	{
 		return $this->data[$offset] = $value;
 	}
 
-
 	/**
 	 * @param mixed $offset
 	 */
-	#[ReturnTypeWillChange]
 	public function offsetUnset($offset): void
 	{
 		unset($this->data[$offset]);
 	}
-
 
 	public function getIterator(): \Traversable
 	{

@@ -1,8 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace PechOndra\Layout\Menu;
-
-use PechOndra\Destination;
+namespace Pleskin;
 
 interface ItemInterface
 {
@@ -29,5 +27,7 @@ interface ItemInterface
 	public function getParent(): ItemInterface|MenuInterface|null;
 
 	public function setParent(ItemInterface|MenuInterface|null $parent): void;
+
+	public function addTitle(\Stringable|string $string): void;
 
 }

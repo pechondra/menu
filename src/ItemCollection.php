@@ -1,10 +1,10 @@
 <?php declare(strict_types = 1);
 
-namespace PechOndra\Layout\Menu;
+namespace Pleskin;
 
-use PechOndra\Infrastructure\Collection\ObjectIterator;
-use PechOndra\Layout\Menu\Exception\ItemAlreadyExistsException;
-use PechOndra\Layout\Menu\Exception\ItemDoesNotExistsException;
+use Pleskin\Exception\ItemAlreadyExistsException;
+use Pleskin\Exception\ItemDoesNotExistsException;
+use Pleskin\Infrastructure\ObjectIterator;
 
 class ItemCollection extends ObjectIterator
 {

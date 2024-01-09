@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace PechOndra\Layout\Menu;
+namespace Pleskin;
 
-use PechOndra\Layout\Menu\Exception\ItemAlreadyExistsException;
+use Pleskin\Exception\ItemAlreadyExistsException;
 
 class Menu implements MenuInterface
 {
@@ -83,4 +83,24 @@ class Menu implements MenuInterface
 		return false;
 	}
 
+	public function getLastCurrentItem(): ItemInterface|null
+	{
+		$items = $this->getItems();
+		$currentItem = null;
+
+		if (self::hasSomeCurrentItem($this->getItems()) === false) {
+			return null;
+		}
+
+		do {
+			foreach ($items as $item) {
+				if ($item->isCurrent() === TRUE) {
+					$currentItem = $item;
+					$items = $item->getItems();
+				}
+			}
+		} while ($items->count() !== 0);
+
+		return $currentItem;
+	}
 }

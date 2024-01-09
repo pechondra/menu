@@ -1,8 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace PechOndra\Layout\Menu;
-
-use PechOndra\Destination;
+namespace Pleskin;
 
 class NetteMenuCompiler
 {
