@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
 
-namespace Pleskin;
+namespace Pleskin\Nette;
 
 interface NetteCompilableUser
 {
