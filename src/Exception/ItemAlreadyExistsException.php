@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
 
-namespace PechOndra\Layout\Menu\Exception;
+namespace Pleskin\Exception;
 
 class ItemAlreadyExistsException extends \RuntimeException
 {

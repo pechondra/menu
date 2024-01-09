@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "PechOndra\\": "src/"
+            "Pleskin\\": "src/"
         }
     },
     "minimum-stability": "dev",

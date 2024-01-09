@@ -1,8 +1,6 @@
 <?php declare(strict_types = 1);
 
-namespace PechOndra\Layout\Menu;
-
-use PechOndra\Destination;
+namespace Pleskin;
 
 class Item implements ItemInterface
 {
@@ -41,6 +39,7 @@ class Item implements ItemInterface
 		$this->destination = $destination;
 		$this->resource = $resource;
 		$this->sortPriority = $sortPriority;
+		$this->icon = $icon;
 
 		$this->items = new ItemCollection($items, $this);
 	}
@@ -105,7 +104,7 @@ class Item implements ItemInterface
 	}
 
 
-	public function addItem(\PechOndra\Layout\Menu\Item $item): void
+	public function addItem(Item $item): void
 	{
 		$this->getItems()->add($item);
 	}
@@ -120,6 +119,11 @@ class Item implements ItemInterface
 	public function getItemByCanonicalName(string $canonicalName): ItemInterface
 	{
 		return $this->getItems()->getByCanonicalName($canonicalName);
+	}
+
+	public function addTitle(\Stringable|string $string): void
+	{
+		$this->title = $this->title . ' ' . $string;
 	}
 
 }
