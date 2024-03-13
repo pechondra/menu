@@ -29,37 +29,22 @@ abstract class ObjectIterator implements ArrayAccess, IteratorAggregate, Countab
 		return \count($this->data);
 	}
 
-	/**
-	 * @param mixed $offset
-	 */
-	public function offsetExists($offset): bool
+	public function offsetExists(mixed $offset): bool
 	{
 		return isset($this->data[$offset]);
 	}
 
-	/**
-	 * @param mixed $offset
-	 * @return mixed
-	 */
-	public function offsetGet($offset)
+	public function offsetGet(mixed $offset): mixed
 	{
 		return $this->data[$offset];
 	}
 
-	/**
-	 * @param mixed $offset
-	 * @param mixed $value
-	 * @return mixed
-	 */
-	public function offsetSet($offset, $value)
+	public function offsetSet(mixed $offset, mixed $value): void
 	{
-		return $this->data[$offset] = $value;
+		$this->data[$offset] = $value;
 	}
 
-	/**
-	 * @param mixed $offset
-	 */
-	public function offsetUnset($offset): void
+	public function offsetUnset(mixed $offset): void
 	{
 		unset($this->data[$offset]);
 	}
