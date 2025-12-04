@@ -93,12 +93,21 @@ class Menu implements MenuInterface
 		}
 
 		do {
+			$foundCurrent = false;
+
 			foreach ($items as $item) {
-				if ($item->isCurrent() === TRUE) {
+				if ($item->isCurrent() === true) {
 					$currentItem = $item;
 					$items = $item->getItems();
+					$foundCurrent = true;
+					break;
 				}
 			}
+
+			if ($foundCurrent === false) {
+				break;
+			}
+
 		} while ($items->count() !== 0);
 
 		return $currentItem;
