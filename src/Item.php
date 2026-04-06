@@ -30,7 +30,7 @@ class Item implements ItemInterface
 		Destination|null $destination = null,
 		string|null $resource = null,
 		int $sortPriority = 10,
-		string $icon = null,
+		?string $icon = null,
 		ItemInterface ...$items
 	)
 	{
